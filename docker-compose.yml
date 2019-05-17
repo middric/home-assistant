@@ -6,6 +6,7 @@ home-assistant:
   volumes:
     - ~/home-assistant:/config
     - /etc/localtime:/etc/localtime:ro
+    - /etc/letsencrypt/archive/linc.witchert.co.uk:/ssl
   environment:
     - PUID=${PUID}
     - PGID=${PGID}

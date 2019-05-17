@@ -18,8 +18,9 @@ homeassistant:
 default_config:
 
 # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
-# http:
-#   base_url: example.duckdns.org:8123
+http:
+  ssl_certificate: /ssl/fullchain1.pem
+  ssl_key: /ssl/privkey1.pem
 
 # Discover some devices automatically
 discovery:
