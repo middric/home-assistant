@@ -1,0 +1,24 @@
+- id: '1557951359641'
+  alias: Study sunset
+  trigger:
+  - event: sunset
+    offset: '-60'
+    platform: sun
+  condition: []
+  action:
+  - data:
+      group_name: Study
+      scene_name: Evening
+    service: hue.hue_activate_scene
+- id: '1557951582900'
+  alias: Study sunrise
+  trigger:
+  - event: sunrise
+    offset: '45'
+    platform: sun
+  condition: []
+  action:
+  - data:
+      group_name: Study
+      scene_name: Daytime
+    service: hue.hue_activate_scene
