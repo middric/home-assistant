@@ -30,9 +30,25 @@ lovelace:
 
 # Sensors
 sensor:
-  # Weather prediction
   - platform: yr
   - platform: plex
+  - platform: template
+    sensors:
+      living_room_tv_source:
+        friendly_name: "Living Room TV Source"
+        value_template: '{{states.media_player.living_room_tv_2.attributes.source}}'
+      current_temp:
+        friendly_name: "Current Temperature"
+        entity_id: climate.heating
+        value_template: '{{states.climate.heating.attributes.current_temperature}}'
+        device_class: temperature
+        unit_of_measurement: "°C"
+      target_temp:
+        friendly_name: "Target Temperature"
+        entity_id: climate.heating
+        value_template: '{{states.climate.heating.attributes.temperature}}'
+        device_class: temperature
+        unit_of_measurement: "°C"
 
 # Text to speech
 tts:
@@ -59,6 +75,10 @@ weather:
 
 media_player:
   - platform: plex
+  - platform: webostv
+    host: 192.168.1.31
+    name: Living Room TV
+    filename: weboslivingroomtv.conf
 
 device_tracker:
   - platform: unifi

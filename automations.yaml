@@ -22,3 +22,31 @@
       group_name: Study
       scene_name: Daytime
     service: hue.hue_activate_scene
+- id: '1558194909847'
+  alias: Movie Lights
+  trigger:
+  - entity_id: sensor.living_room_tv_source
+    from: unknown
+    platform: state
+    to: Amazon Prime Video
+  - entity_id: sensor.living_room_tv_source
+    from: unknown
+    platform: state
+    to: Netflix
+  - entity_id: sensor.living_room_tv_source
+    from: unknown
+    platform: state
+    to: Plex
+  - entity_id: sensor.living_room_tv_source
+    from: unknown
+    platform: state
+    to: XPlay
+  condition:
+  - after: '18:00:00'
+    before: '04:00:00'
+    condition: time
+  action:
+  - data:
+      group_name: Living Room
+      scene_name: movie
+    service: hue.hue_activate_scene
